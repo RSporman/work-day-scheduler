@@ -22,8 +22,8 @@ function updateColors() {
     var currentTime = new Date().getHours();
     console.log("currentTime: ", currentTime);
     console.log(localStorage.getItem);
-    for (var i = 9; i < 18; i++) {
-        var hour = $('#text-entry' + i);
+    for (var i = 8; i < 18; i++) {
+        var hour = $('#textarea' + i);
         if (i < currentTime) {
             hour.addClass("past");
         } else if (i === currentTime) {
@@ -33,9 +33,9 @@ function updateColors() {
         }
     }
 }
-setInterval(function (eventText) {
-    updateColors();
-}, 1000);
+// setInterval(function (eventText) {
+//     updateColors();
+// }, 1000);
 
 
 var saveBtn = $('.button');
@@ -49,17 +49,17 @@ saveBtn.on('click', function () {
     // console.log("eventText")
     console.log(eventText);
     localStorage.setItem(eventId, eventText);
+    for (var i = 8; i < 18; i++){
+    console.log(localStorage.getItem(i));
+    }
 });
-localStorage.getItem(eventId, eventText);
+$('textarea').val($('textarea').val());
 
+// localStorage.getItem('textarea');
 
+// console.log(localStorage.getItem(9));
 
-//         // let value = localStorage.getItem(key);
-//         // console.log(value);
-//         // if (value) {
-//         //     $(`#text${key}`).text(value);
-//         // }
-//     });
+// for (var i = 8; i < 18; i++){
+//     console.log(localStorage.getItem(i));
 // }
-// getLocalStorage()
 
