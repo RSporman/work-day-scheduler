@@ -1,5 +1,4 @@
-//we need a variable for the current time
-// var currentTime = moment().hour();
+
 
 function secondUpdater() {
     $(".time").text(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
@@ -40,26 +39,23 @@ function updateColors() {
 
 var saveBtn = $('.button');
 saveBtn.on('click', function () {
-    // console.log("just clicked save")
-    // console.log(this)
+   
     var eventId = $(this).attr('id');
     var eventText = $(this).parent().children('textarea').val(); //this line might need work.
-    // console.log("eventId")
     console.log(eventId);
-    // console.log("eventText")
     console.log(eventText);
-    localStorage.setItem(eventId, eventText);
-    for (var i = 8; i < 18; i++){
-    console.log(localStorage.getItem(i));
+    var temp = JSON.parse(localStorage.getItem("userData")) || [];
+    var userData = {
+        time: eventId,
+        note: eventText
     }
+    temp.push(userData);
+    localStorage.setItem("userData",JSON.stringify(temp));
+    
 });
-$('textarea').val($('textarea').val());
-
-// localStorage.getItem('textarea');
-
-// console.log(localStorage.getItem(9));
-
-// for (var i = 8; i < 18; i++){
-//     console.log(localStorage.getItem(i));
-// }
-
+var temp = JSON.parse(localStorage.getItem("userData"));
+for (var i = 0; i < temp.length; i++){
+    var time = "description-"+temp[i].time;
+    console.log("Text area id: "+time);
+    $("#"+time).val(temp[i].note);
+    }
