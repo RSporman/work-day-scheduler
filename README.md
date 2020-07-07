@@ -1,2 +1,3 @@
 # work-day-scheduler
 Homework 5
+With thid work day schedular app, we are creating a fully functional calendar that allows the user to plan the day ahead. The work day begins at 8 and every hour the user will be able to add their content and save the app. When reloading the page the user will see what he/she has saved for each hour. If it is 10am the user will see the 8 and 9 am timeslots grayed out because that time of the day has past. The present time period will show the text area as a red color and the future hours will show a green color, so the user knows whats ahead for the day.
